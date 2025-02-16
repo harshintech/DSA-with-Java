@@ -7,6 +7,7 @@ class DLL{
         this.tail = null;
     }
 
+    //create Node
     class Node{
         int data;
         Node next;
