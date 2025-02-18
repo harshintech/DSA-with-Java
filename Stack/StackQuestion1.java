@@ -32,6 +32,7 @@ public class StackQuestion1 {
         s4.push(50);
 
         pushAtBottom(33,s4);
+        //reverse stack
         reverse(s4);
 
         while(!s4.isEmpty()){
