@@ -12,6 +12,16 @@ public class StackQuestion1 {
         s.push(top);
 
     }
+
+    public static void reverse(Stack<Integer> s){
+        if(s.isEmpty()){
+            return;
+        }
+        int top = s.pop();
+        reverse(s);
+        pushAtBottom(top, s);
+
+    }
     public static void main(String[] args){
         Stack<Integer> s4 = new Stack<>();
 
@@ -22,6 +32,7 @@ public class StackQuestion1 {
         s4.push(50);
 
         pushAtBottom(33,s4);
+        reverse(s4);
 
         while(!s4.isEmpty()){
             System.out.println(s4.peek());
