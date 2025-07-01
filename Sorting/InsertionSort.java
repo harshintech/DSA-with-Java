@@ -5,9 +5,9 @@
 
 // | Case                            | Time Complexity |
 // | ------------------------------- | --------------- |
-// | **Best Case** (already sorted)  | **O(n)**        |
-// | **Average Case**                | **O(n²)**       |
-// | **Worst Case** (reverse sorted) | **O(n²)**       |
+// | Best Case (already sorted)      | O(n)            |
+// | Average Case                    | O(n²)           |
+// | Worst Case** (reverse sorted)   | O(n²)           |
 
 
 // ⚡️ Why best case is O(n)?
