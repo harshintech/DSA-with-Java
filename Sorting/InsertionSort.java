@@ -3,6 +3,8 @@
 //     -> When the array is small.
 //     -> When the array is almost sorted — it works very well in this case.
 
+// 📌 Insertion Sort — Time Complexity
+
 // | Case                            | Time Complexity |
 // | ------------------------------- | --------------- |
 // | Best Case (already sorted)      | O(n)            |
