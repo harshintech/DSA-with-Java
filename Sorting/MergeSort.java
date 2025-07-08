@@ -1,3 +1,9 @@
+//NOTE:
+
+//Time Complexity
+// --> [O(nlogn)]
+
+
 class MergeSort{
 
     public static void mSort(int []arr,int low,int mid,int high){
@@ -26,10 +32,10 @@ class MergeSort{
             merged[x++] = arr[indx2++];
         }
 
-         // 👇 Copy back!
-    for (int i = 0; i < merged.length; i++) {
-        arr[low + i] = merged[i];
-    }
+      
+        for (int i = 0; i < merged.length; i++) {
+            arr[low + i] = merged[i];
+        }
     }
 
     public static void partition(int []arr,int low,int high){
@@ -44,14 +50,9 @@ class MergeSort{
         partition(arr,mid+1,high);
 
         mSort(arr,low,mid,high);
-
-        
-        
-    
-
-
-
     }
+
+
     public static void main(String[] args){
        int arr[] = {6,3,9,21,15,7};
 
@@ -60,8 +61,8 @@ class MergeSort{
 
        partition(arr,low,high);
 
- for(int i = 0;i<arr.length;i++){
-        System.out.print(arr[i] + " ");
-    }
+        for(int i = 0;i<arr.length;i++){
+            System.out.print(arr[i] + " ");
+        }
     }
 }
