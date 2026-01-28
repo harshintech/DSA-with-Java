@@ -46,6 +46,14 @@ public class DepthFirstSearch {
 
     }
 
+
+    /* 
+        (1)-----------(3)
+      /               |  \
+    (0)               |   (5)---(6)
+      \               |  /
+       (2)-----------(4)
+*/
     //O(V+E)
     public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[]){
         System.out.print(curr + " ");
