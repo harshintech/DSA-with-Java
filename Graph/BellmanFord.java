@@ -64,6 +64,21 @@ public class BellmanFord {
             }
         }
 
+        //detect -ve wt cycles
+        for(int k = 0;k<V-1;k++){
+            //O(E)
+            for(int i=0;i<V;i++){ 
+                for(int j = 0;j<graph[i].size();j++){ 
+                    Edge e = graph[i].get(j);
+                    int u = e.src;
+                    int v = e.dest;
+                    if(dist[u] != Integer.MAX_VALUE && dist[u] + e.wt < dist[v]){
+                       System.out.println("negative wt cycle");
+                    }
+                }
+            }
+        }
+
         for(int i = 0;i<dist.length;i++){
             System.out.print(dist[i] + " ");
         }
