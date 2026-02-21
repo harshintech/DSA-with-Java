@@ -70,35 +70,46 @@ public class UnionBySize {
     }
 }
 
-/*
-Here are the two states of the `parent` and `rank` lists for your code execution.
+/*  
+Bilkul brother, ye raha aapka **Initial** aur **Final** state tables specifically **Union By Size** ke liye.
 
-### 1. Initial State
+Yaad rakhna, yahan hum `rank` use nahi kar rahe, toh `size` wali list main hai.
 
-This is immediately after `DisjointSet ds = new DisjointSet(7);` is called. Every node is its own parent (Ultimate Parent) and all ranks are 0.
+### 1. Initial State (Sab akela hain)
+
+Jaise hi `new DisjointSet2(7)` call hota hai, har node apna khud ka boss hai aur har group ka size **1** hai.
 
 | Node (Index) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |      ---     | - | - | - | - | - | - | - | - |
 | **Parent**   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-| **Rank**     | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| **Size**     | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 
 ---
 
-### 2. Final State (After all Unions and Finds)
+### 2. Final State (Poora code chalne ke baad)
 
-This is the state after the final `findUPar(3) == findUPar(7)` check. Note that **Path Compression** has updated several parents to point directly to the ultimate boss (**4**).
+Ye state tab ki hai jab saare `unionBySize` aur `findUPar` calls khatam ho chuke hain. **Path Compression** ki wajah se maximum nodes ab direct apne King (Node 1 ya Node 4) ko point kar rahe honge.
 
 | Node (Index) | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |      ---     | - | - | - | - | - | - | - | - |
-| **Parent**   | 0 | 4 | 1 | 4 | 4 | 4 | 4 | 4 |
-| **Rank**     | 0 | 1 | 0 | 0 | 2 | 0 | 1 | 0 |
+| **Parent**   | 0 | 1 | 1 | 1 | 1 | 4 | 4 | 1 |
+| **Size**     | 1 | 7 | 1 | 1 | 4 | 1 | 2 | 1 |
 
-**Final Console Output:**
+> **Note:** Aapke code mein logic `else` block (Size U >= Size V) mein `ulp_v` ko `ulp_u` ke niche dalta hai. Isliye is dry run mein **Node 1** ultimate parent ban raha hai kyunki woh pehle unions mein bada ho gaya tha.
 
-```text
-Not Same
-Same
+---
 
-```
+### Console Output summary:
 
-Would you like me to show you how to implement **Union by Size** next, which is often considered even more intuitive than Rank? */
+1. **First Check (3 and 7):** Node 3 group {1,2,3} mein tha, Node 7 group {4,5,6,7} mein tha. Dono ke boss alag the.
+* **Output:** `Not Same`
+
+
+2. **Union(3, 7):** Dono groups jud gaye.
+3. **Second Check (3 and 7):** Ab dono ka boss same hai.
+* **Output:** `Same`
+
+
+
+**Quick Tip:** `Size` table mein sirf **Ultimate Parent** ke index par jo value hai wohi sahi "Total Size" batati hai. Baaki indices ki size values purani ho sakti hain, unhe ignore kar sakte ho.
+*/
